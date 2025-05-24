@@ -1,0 +1,257 @@
+:where([class^="ri-"])::before { 
+            content: "\f3c2"; 
+        }
+        
+        @font-face {
+            font-family: 'Pretty Comic';
+            src: url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+        }
+        
+        body {
+            font-family: 'Comic Neue', cursive;
+            background-color: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .pretty-font {
+            font-family: 'Comic Neue', cursive;
+            font-weight: 700;
+        }
+        
+        .rotated-text {
+            transform: rotate(-5deg);
+        }
+        
+        .rotated-text-reverse {
+            transform: rotate(5deg);
+        }
+        
+        .marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        .wiggle {
+            animation: wiggle 2.5s infinite;
+        }
+        
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+        
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .shine {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(30deg);
+            animation: shine 6s infinite;
+        }
+        
+        @keyframes shine {
+            0% { left: -60%; }
+            100% { left: 200%; }
+        }
+        
+        .blink {
+            animation: blink 3s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .radial-rays {
+            background: radial-gradient(circle, #51B9A4 0%, #51B9A4 30%, #3D8B7D 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .radial-rays::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-conic-gradient(
+                from 0deg at 50% 30%,
+                #51B9A4 0deg, 
+                #51B9A4 3deg, 
+                transparent 3deg, 
+                transparent 12deg
+            );
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
+        .scale-hover:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .border-black-thick {
+            border: 3px solid #000000;
+        }
+        
+        .custom-checkbox {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #FFD700;
+            border-radius: 4px;
+            background-color: transparent;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .custom-checkbox:checked {
+            background-color: #FFD700;
+        }
+        
+        .custom-checkbox:checked::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #000000;
+            font-weight: bold;
+        }
+        
+        input {
+            background-color: transparent;
+            border: none;
+            outline: none;
+        }
+        
+        input:focus {
+            outline: none;
+        }
+        
+        button {
+            border: none;
+            outline: none;
+        }
+        
+        select {
+            appearance: none;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+        
+        .parallax {
+            transform: translateZ(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .parallax:hover {
+            transform: translateZ(50px);
+        }
+        #mainHeader h1 {
+            transition: font-size 0.3s ease;
+        }
+
+        #mainHeader button {
+            transition: all 0.3s ease;
+        }
+        button svg {
+            transition: transform 0.3s ease;
+        }
+
+        button:hover svg {
+            transform: translateX(4px);
+        }
+        #mainHeader img {
+            transition: all 0.3s ease;
+        }
+        #socialIcons {
+            transition: transform 0.25s ease-in-out, visibility 0.25s ease-in-out;
+        }
+        /* Footer sosyal medya ikonları için flexbox */
+        .social-icons-mobile {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .social-icons-mobile a {
+            width: 3rem;
+            height: 3rem;
+        }
+
+        /* İlk 3 ikon normal, son 2 ikon için özel container */
+        .social-row-1 {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .social-row-2 {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .social-icons-mobile {
+                gap: 2rem;
+            }
+            
+            .social-icons-mobile a {
+                width: 4rem;
+                height: 4rem;
+            }
+            
+            .social-row-1,
+            .social-row-2 {
+                display: contents;
+            }
+        }
+        
+        @media (max-height: 700px) {
+            .radial-rays {
+                padding-top: 80px;
+                padding-bottom: 40px;
+            }
+        }

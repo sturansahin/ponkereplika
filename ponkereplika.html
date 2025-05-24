@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="tr">
+    <link rel="icon" type="image/svg+xml" href="raşoo.png">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DegenRaxo</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#51B9A4',
+                        secondary: '#3D8B7D'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '8px',
+                        DEFAULT: '12px',
+                        'md': '16px',
+                        'lg': '20px',
+                        'xl': '24px',
+                        '2xl': '28px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '12px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <link rel="stylesheet" href="styles.css">   
+</head>
+
+<body>
+    <!-- Sol Alt Köşe Sosyal Medya İkonları -->
+    <div id="socialIcons" class="hidden md:flex fixed bottom-8 left-8 flex flex-col space-y-4 z-40 transition-transform duration-300">
+        <a href="https://x.com/degenraxo" class="w-12 h-12 bg-black rounded-full flex items-center justify-center text-[#51B9A4] hover:scale-110 transition-transform shadow-lg" title="X">
+            <i class="ri-twitter-x-line ri-lg"></i>
+        </a>
+        <a href="https://www.instagram.com/degenraxo/" class="w-12 h-12 bg-black rounded-full flex items-center justify-center text-[#51B9A4] hover:scale-110 transition-transform shadow-lg" title="Instagram">
+            <i class="ri-instagram-line ri-lg"></i>
+        </a>
+        <a href="https://www.tiktok.com/@degenraxo" class="w-12 h-12 bg-black rounded-full flex items-center justify-center text-[#51B9A4] hover:scale-110 transition-transform shadow-lg" title="TikTok">
+            <i class="ri-tiktok-line ri-lg"></i>
+        </a>
+        <a href="https://web.telegram.org/k/#@degenraxo" class="w-12 h-12 bg-black rounded-full flex items-center justify-center text-[#51B9A4] hover:scale-110 transition-transform shadow-lg" title="Telegram">
+            <i class="ri-telegram-line ri-lg"></i>
+        </a>
+        <a href="https://www.patreon.com/profile/creators?u=170999156&utm_campaign=creatorshare_creator&utm_content=copyLink&utm_medium=unknown&utm_source=join_link" class="w-12 h-12 bg-black rounded-full flex items-center justify-center text-[#51B9A4] hover:scale-110 transition-transform shadow-lg"title="Patreon">
+            <i class="ri-patreon-line ri-lg"></i>
+        </a>
+    </div>
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-2 md:py-4 px-2 md:px-8 border-b border-transparent" id="mainHeader">
+        <div id="headerContainer" class="container mx-auto flex justify-between items-center h-[60px] md:h-[80px]">
+            <div class="flex items-center space-x-2 md:space-x-3">
+                <img src="raşoo.png" alt="RAXO Logo" class="w-8 h-8 md:w-12 md:h-12 object-contain">
+                <h1 class="text-2xl md:text-4xl font-bold text-black pretty-font">R A X O</h1>
+            </div>
+            <button class="hidden sm:flex bg-primary text-white px-4 md:px-6 py-2 md:py-3 rounded-button font-bold border-black-thick hover:scale-105 transition-transform whitespace-nowrap items-center space-x-2" title="Coming Soon...">
+                <span class="text-sm md:text-base" >INTEGRATIONS</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right md:w-4 md:h-4">
+                    <path d="M7 7h10v10"></path>
+                    <path d="m7 17 10-10"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <script id="headerScroll">
+    document.addEventListener('DOMContentLoaded', function() {
+        const header = document.getElementById('mainHeader');
+        const container = document.getElementById('headerContainer');
+        const logo = header.querySelector('h1');
+        const logoImg = header.querySelector('img');
+        const button = header.querySelector('button');
+        const socialIcons = document.getElementById('socialIcons');
+        let lastScroll = 0;
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                // Normal boyut
+                header.classList.remove('bg-primary');
+                header.classList.add('bg-transparent');
+                header.classList.remove('border-black');
+                header.classList.add('border-transparent');
+                header.classList.remove('py-1', 'md:py-1');
+                header.classList.add('py-2', 'md:py-4');
+                
+                // Container yüksekliği normal
+                container.classList.remove('h-[40px]', 'md:h-[50px]');
+                container.classList.add('h-[60px]', 'md:h-[80px]');
+                
+                // Logo boyutları normal
+                logo.classList.remove('text-xl', 'md:text-2xl');
+                logo.classList.add('text-2xl', 'md:text-4xl');
+                logoImg.classList.remove('w-6', 'h-6', 'md:w-8', 'md:h-8');
+                logoImg.classList.add('w-8', 'h-8', 'md:w-12', 'md:h-12');
+                
+                // Button normal boyut
+                button.classList.remove('px-3', 'md:px-4', 'py-1', 'md:py-2', 'text-xs', 'md:text-sm');
+                button.classList.add('px-4', 'md:px-6', 'py-2', 'md:py-3', 'text-sm', 'md:text-base');
+                
+                // Sosyal medya ikonlarını göster (sadece desktop)
+                if (socialIcons) {
+                    socialIcons.style.transform = 'translateX(0)';
+                    socialIcons.style.visibility = 'visible';
+                }
+                
+            } else {
+                // Scroll edildiğinde - küçük boyut
+                header.classList.add('bg-primary');
+                header.classList.remove('bg-transparent');
+                header.classList.add('border-black');
+                header.classList.remove('border-transparent');
+                header.classList.remove('py-2', 'md:py-4');
+                header.classList.add('py-1', 'md:py-1');
+                
+                // Container yüksekliği küçük
+                container.classList.remove('h-[60px]', 'md:h-[80px]');
+                container.classList.add('h-[40px]', 'md:h-[50px]');
+                
+                // Logo boyutları küçük
+                logo.classList.remove('text-2xl', 'md:text-4xl');
+                logo.classList.add('text-xl', 'md:text-2xl');
+                logoImg.classList.remove('w-8', 'h-8', 'md:w-12', 'md:h-12');
+                logoImg.classList.add('w-6', 'h-6', 'md:w-8', 'md:h-8');
+                
+                // Button küçük boyut
+                button.classList.remove('px-4', 'md:px-6', 'py-2', 'md:py-3', 'text-sm', 'md:text-base');
+                button.classList.add('px-3', 'md:px-4', 'py-1', 'md:py-2', 'text-xs', 'md:text-sm');
+                
+                // Sosyal medya ikonlarını gizle
+                if (socialIcons) {
+                    socialIcons.style.transform = 'translateX(-250px)';
+                    socialIcons.style.visibility = 'hidden';
+                }
+            }
+            
+            lastScroll = currentScroll;
+        });
+    });
+    </script>
+
+    <!-- Hero Section -->
+    <section class="radial-rays min-h-screen flex flex-col items-center justify-center py-20 relative">
+        <div class="container mx-auto flex flex-col items-center justify-center text-center px-4 w-full relative z-10">
+            <img src="raşoo.png" alt="PONKE Character" class="w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 mb-6 relative z-20">
+            <h1 class="pretty-font text-3xl sm:text-4xl md:text-6xl lg:text-[100px] text-black mb-8 rotated-text uppercase relative z-20">RAXO</h1>
+            <p class="text-base sm:text-lg md:text-2xl lg:text-3xl pretty-font text-black mb-8 relative z-20">The Menace of Degen Planet</p>
+            <button id="exploreButton" class="bg-[#FF6B6B] text-white px-6 py-3 text-base sm:text-lg md:text-2xl lg:text-3xl rounded-button border-black-thick rotated-text-reverse font-bold bounce hover:scale-110 transition-transform whitespace-nowrap relative z-20">
+                EXPLORE
+            </button>
+        </div>
+    </section>
+
+    <!-- Marquee Banner -->
+    <div class="bg-primary py-4 overflow-hidden border-t-2 border-b-2 border-black">
+        <div class="marquee">
+            <div class="marquee-content text-black text-2xl font-bold">
+                NOT JUST A COIN — A COSMIC RACCOON CULT! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NOT JUST A COIN — A COSMIC RACCOON CULT! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NOT JUST A COIN — A COSMIC RACCOON CULT! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="marquee-content text-black text-2xl font-bold">
+                NOT JUST A COIN — A COSMIC RACCOON CULT! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NOT JUST A COIN — A COSMIC RACCOON CULT! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NOT JUST A COIN — A COSMIC RACCOON CULT! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+        </div>
+    </div>
+
+    <!-- Utilities Section -->
+    <section class="bg-primary py-20 px-8">
+        <div class="container mx-auto">
+            <h2 class="pretty-font text-5xl text-black mb-16 text-center">RAXO UTILITIES</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-[#333333] p-8 rounded-lg shine parallax">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="ri-exchange-line ri-xl text-black"></i>
+                    </div>
+                    <h3 class="text-2xl text-[#FFE156] mb-4 font-bold">RaxoSwap</h3>
+                    <p class="text-gray-300">Coming Soon...</p>
+                </div>
+                <div class="bg-[#333333] p-8 rounded-lg shine parallax">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="ri-link-m ri-xl text-black"></i>
+                    </div>
+                    <h3 class="text-2xl text-[#FFE156] mb-4 font-bold">Entegrasyonlar</h3>
+                    <p class="text-gray-300">Diğer Solana projeleriyle sorunsuz entegrasyon. RAXO ekosistemini genişleten stratejik ortaklıklar ve işbirlikleri.</p>
+                </div>
+                <div class="bg-[#333333] p-8 rounded-lg shine parallax">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="ri-team-line ri-xl text-black"></i>
+                    </div>
+                    <h3 class="text-2xl text-[#FFE156] mb-4 font-bold">Topluluk</h3>
+                    <p class="text-gray-300">Güçlü ve aktif bir topluluk. Özel etkinlikler, ödüller ve RAXO sahipleri için ayrıcalıklı erişim imkanları.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Buy Section -->
+    <section class="bg-black py-20 px-8">
+        <div class="container mx-auto">
+            <h2 class="pretty-font text-5xl text-primary mb-16 text-center">NASIL ALINIR</h2>
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <div class="md:w-1/2">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-[#222222] p-6 rounded-lg border-2 border-[#FFE156] scale-hover">
+                            <div class="w-12 h-12 bg-[#FFE156] rounded-full flex items-center justify-center mb-4 text-black font-bold text-xl">1</div>
+                            <h3 class="text-xl text-white mb-2 font-bold">Phantom Cüzdanı Kur</h3>
+                            <p class="text-gray-300">Phantom cüzdanını tarayıcı eklentisi olarak yükle ve yeni bir cüzdan oluştur.</p>
+                        </div>
+                        <div class="bg-[#222222] p-6 rounded-lg border-2 border-[#FFE156] scale-hover">
+                            <div class="w-12 h-12 bg-[#FFE156] rounded-full flex items-center justify-center mb-4 text-black font-bold text-xl">2</div>
+                            <h3 class="text-xl text-white mb-2 font-bold">SOL Satın Al</h3>
+                            <p class="text-gray-300">Bir borsadan SOL satın al ve Phantom cüzdanına gönder.</p>
+                        </div>
+                        <div class="bg-[#222222] p-6 rounded-lg border-2 border-[#FFE156] scale-hover">
+                            <div class="w-12 h-12 bg-[#FFE156] rounded-full flex items-center justify-center mb-4 text-black font-bold text-xl">3</div>
+                            <h3 class="text-xl text-white mb-2 font-bold">Raydium'a Bağlan</h3>
+                            <p class="text-gray-300">Raydium.io'ya git ve Phantom cüzdanını bağla.</p>
+                        </div>
+                        <div class="bg-[#222222] p-6 rounded-lg border-2 border-[#FFE156] scale-hover">
+                            <div class="w-12 h-12 bg-[#FFE156] rounded-full flex items-center justify-center mb-4 text-black font-bold text-xl">4</div>
+                            <h3 class="text-xl text-white mb-2 font-bold">RAXO Satın Al</h3>
+                            <p class="text-gray-300">RAXO token adresini gir ve SOL ile takas et. Artık bir RAXO sahibisin!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://readdy.ai/api/search-image?query=A%20cartoon%20monkey%20teacher%20character%20with%20glasses%2C%20pointing%20at%20a%20chalkboard%20with%20cryptocurrency%20symbols.%20The%20monkey%20is%20wearing%20a%20professor%20outfit%20and%20has%20a%20scholarly%20appearance.%20Comic%20style%20illustration%20with%20a%20clean%20background.&width=500&height=500&seq=teacher&orientation=squarish" alt="Teacher Monkey" class="w-full max-w-md">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tokenomics Section -->
+    <section class="bg-black py-20 px-8">
+        <div class="container mx-auto">
+            <h2 class="pretty-font text-5xl text-[#51B9A4] mb-16 text-center">TOKENOMICS</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-[#222222] p-8 rounded-lg border-2 border-primary">
+                    <h3 class="text-2xl text-primary mb-4 font-bold">Token Adresi</h3>
+                    <div class="bg-[#333333] p-4 rounded flex items-center justify-between">
+                        <p class="text-gray-300 text-sm">0x7n</p>
+                        <button class="text-primary hover:text-white">
+                            <i class="ri-file-copy-line ri-lg"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-[#222222] p-8 rounded-lg border-2 border-[#FFE156]">
+                    <h3 class="text-2xl text-[#FFE156] mb-4 font-bold">Toplam Arz</h3>
+                    <p class="text-white text-4xl font-bold">1,000,000,000 RAXO</p>
+                    <p class="text-gray-300 mt-2">%30 Topluluk, %25 Likidite, %20 Geliştirme, %15 Pazarlama, %10 Ekip</p>
+                </div>
+                <div class="bg-[#222222] p-8 rounded-lg border-2 border-[#FFE156] md:col-span-2">
+                    <h3 class="text-2xl text-[#FFE156] mb-4 font-bold">Vergi Yapısı</h3>
+                    <p class="text-white text-2xl mb-2">%0 Alım / %0 Satım</p>
+                    <p class="text-gray-300 italic">"Açgözlü bir pislik değilim. RAXO sadece eğlence ve topluluk içindir!"E</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POV Section -->
+    <section class="py-20 px-8 relative" style="background-image: url('https://readdy.ai/api/search-image?query=A%20detailed%20trading%20desk%20setup%20with%20multiple%20monitors%20displaying%20cryptocurrency%20charts%20and%20trading%20interfaces.%20The%20desk%20has%20a%20keyboard%2C%20mouse%2C%20coffee%20cup%2C%20and%20some%20trading%20notes.%20The%20scene%20is%20dimly%20lit%20with%20a%20focus%20on%20the%20glowing%20screens.&width=1280&height=720&seq=trading&orientation=landscape'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+        <div class="container mx-auto relative z-10">
+            <div class="absolute top-4 right-4 md:top-4 md:right-4 bg-[#FFE156] text-black py-1 md:py-2 px-2 md:px-4 rotated-text font-bold text-xs md:text-base">
+                <span class="hidden md:inline">RAXO TRADING POV</span>
+                <span class="md:hidden">RAXO POV</span>
+            </div>
+            <div class="max-w-2xl mx-auto bg-black bg-opacity-80 p-8 rounded-lg border-2 border-[#FFE156]">
+                <h2 class="pretty-font text-4xl text-[#FFE156] mb-8">Trader's Diary</h2>
+                <div class="space-y-6 text-white">
+                    <p class="blink">
+                        <span class="text-[#FFE156] font-bold">08:30</span> - İlk kahvemi içtim. RAXO grafiğine bakıyorum. Bu sabah rakunlar uyanmış… Hissediyorum, bugün kaos var!
+                    </p>
+                    <p>
+                        <span class="text-[#FFE156] font-bold">09:15</span> - Solana evreninde bir ortaklık patladı. RAXO adını listede görmek? Bu sadece başlangıç.
+                    </p>
+                    <p>
+                        <span class="text-[#FFE156] font-bold">10:45</span> - %18 yükseliş! Kaskımı taktım, cüzdanımı sıkıca tuttum. RAXO ekspresi raydan çıktı!
+                    </p>
+                    <p>
+                        <span class="text-[#FFE156] font-bold">12:30</span> - Discord alev aldı! Yeni üyeler geliyor, eski üyeler çığlık atıyor. “WE ARE RAXO” çantada dolanıyor.
+                    </p>
+                    <p>
+                        <span class="text-[#FFE156] font-bold">15:20</span> - Ufak bir düşüş… Ama ne diyoruz? Rakunlar dibi koklar, sonra pençeler! Dip alındı, momentum geri geldi.
+                    </p>
+                    <p class="blink">
+                        <span class="text-[#FFE156] font-bold">18:00</span> -  Gün %27 yükselişle kapandı. Grafik değil, sanat bu. Yeni gelenlere not: Bu bir token değil, bir uyanış. Welcome to RAXO.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary pt-24 pb-8 px-8">
+        <div class="container mx-auto flex flex-col items-center">
+            <img src="raşoo.png" alt="PONKE" class="w-32 h-32 mb-8">
+            <h2 class="pretty-font text-5xl text-black mb-16 text-center">S O C I A L S</h2>
+            
+            <div class="social-icons-mobile">
+                <div class="social-row-1">
+                    <a href="https://x.com/degenraxo" class="bg-black rounded-full flex items-center justify-center text-[#51B9A4] hover:scale-110 transition-transform">
+                        <i class="ri-twitter-x-fill text-lg md:ri-2x"></i>
+                    </a>
+                    <a href="https://www.instagram.com/degenraxo/" class="bg-black rounded-full flex items-center justify-center text-[#51B9A4] hover:scale-110 transition-transform">
+                        <i class="ri-instagram-fill text-lg md:ri-2x"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@degenraxo" class="bg-black rounded-full flex items-center justify-center text-[#51B9A4] hover:scale-110 transition-transform">
+                        <i class="ri-tiktok-fill text-lg md:ri-2x"></i>
+                    </a>
+                </div>
+                <div class="social-row-2">
+                    <a href="https://web.telegram.org/k/#@degenraxo" class="bg-black rounded-full flex items-center justify-center text-[#51B9A4] hover:scale-110 transition-transform">
+                        <i class="ri-telegram-fill text-lg md:ri-2x"></i>
+                    </a>
+                    <a href="https://www.patreon.com/profile/creators?u=170999156&utm_campaign=creatorshare_creator&utm_content=copyLink&utm_medium=unknown&utm_source=join_link" class="bg-black rounded-full flex items-center justify-center text-[#51B9A4] hover:scale-110 transition-transform">
+                        <i class="ri-patreon-fill text-lg md:ri-2x"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <button id="joinButton" class="bg-[#FF6B6B] text-white px-10 py-5 text-2xl rounded-button border-black-thick font-bold bounce hover:scale-110 transition-transform whitespace-nowrap mb-12">
+                JOIN NOW
+            </button>
+            
+            <div id="joinModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+                <div class="bg-[#222222] w-full max-w-2xl mx-4 rounded-lg border-2 border-primary p-8 relative">
+                    <button id="closeModal" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                        <i class="ri-close-line ri-2x"></i>
+                    </button>
+                    <h2 class="text-3xl text-primary mb-6 font-bold">RAXO Topluluğuna Hoş Geldin!</h2>
+                    <p class="text-white mb-8">RAXO topluluğuna katılarak özel içeriklere, erken duyurulara ve benzersiz fırsatlara erişim kazanın. Ayrıca topluluk etkinliklerinde özel ödüller kazanma şansı yakalayın!</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <a href="#" class="flex items-center bg-[#7289DA] text-white p-4 rounded hover:opacity-90 transition-opacity">
+                            <i class="ri-discord-fill ri-2x mr-4"></i>
+                            <span>Discord'a Katıl</span>
+                        </a>
+                        <a href="#" class="flex items-center bg-[#0088cc] text-white p-4 rounded hover:opacity-90 transition-opacity">
+                            <i class="ri-telegram-fill ri-2x mr-4"></i>
+                            <span>Telegram'a Katıl</span>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-[#333333] p-6 rounded">
+                        <h3 class="text-xl text-primary mb-4">Bülten Aboneliği</h3>
+                        <form id="newsletterForm" class="space-y-4">
+                            <input type="email" id="emailInput" placeholder="E-posta adresiniz" class="w-full bg-[#444444] text-white px-4 py-3 rounded border-none" required>
+                            <button type="submit" class="w-full bg-primary text-white px-6 py-3 rounded-button font-bold hover:opacity-90 transition-opacity">
+                                Abone Ol
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="flex justify-center space-x-4 mt-6">
+                        <a href="#" class="text-gray-400 hover:text-[#FFD700]">
+                            <i class="ri-twitter-fill ri-2x"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-[#FFD700]">
+                            <i class="ri-medium-fill ri-2x"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <a href="#" class="text-black hover:underline font-bold">Whitepaper</a>
+                <p class="text-black text-sm mt-4">© 2025 RAXO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script id="marqueeAnimation">
+        document.addEventListener('DOMContentLoaded', function() {
+            // Marquee animation already handled by CSS
+        });
+    </script>
+
+    <script id="interactionEffects">
+        document.addEventListener('DOMContentLoaded', function() {
+            const exploreButton = document.getElementById('exploreButton');
+            exploreButton.addEventListener('click', function() {
+                const nextSection = document.querySelector('.marquee').parentElement;
+                nextSection.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Parallax effect for cards
+            const parallaxItems = document.querySelectorAll('.parallax');
+            parallaxItems.forEach(item => {
+                item.addEventListener('mousemove', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const xPercent = x / rect.width - 0.5;
+                    const yPercent = y / rect.height - 0.5;
+                    this.style.transform = `perspective(1000px) rotateY(${xPercent * 5}deg) rotateX(${yPercent * -5}deg) translateZ(20px)`;
+                });
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'perspective(1000px) rotateY(0) rotateX(0) translateZ(0)';
+                });
+            });
+        });
+    </script>
+
+    <script id="formControls">
+        document.addEventListener('DOMContentLoaded', function() {
+            const customCheckboxes = document.querySelectorAll('.custom-checkbox');
+            customCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('click', function() {
+                    this.checked = !this.checked;
+                });
+            });
+        });
+    </script>
+
+    <script id="modalControls">
+        document.addEventListener('DOMContentLoaded', function() {
+            const joinButton = document.getElementById('joinButton');
+            const joinModal = document.getElementById('joinModal');
+            const closeModal = document.getElementById('closeModal');
+            const newsletterForm = document.getElementById('newsletterForm');
+            
+            joinButton.addEventListener('click', function() {
+                joinModal.classList.remove('hidden');
+                joinModal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            closeModal.addEventListener('click', function() {
+                joinModal.classList.add('hidden');
+                joinModal.classList.remove('flex');
+                document.body.style.overflow = '';
+            });
+            
+            joinModal.addEventListener('click', function(e) {
+                if (e.target === joinModal) {
+                    joinModal.classList.add('hidden');
+                    joinModal.classList.remove('flex');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = document.getElementById('emailInput');
+                if (emailInput.value) {
+                    const successMessage = document.createElement('div');
+                    successMessage.className = 'text-green-500 mt-2';
+                    successMessage.textContent = 'Başarıyla abone oldunuz!';
+                    newsletterForm.appendChild(successMessage);
+                    emailInput.value = '';
+                    setTimeout(() => {
+                        successMessage.remove();
+                    }, 3000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
