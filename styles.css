@@ -89,7 +89,7 @@
         
         @keyframes blink {
             0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+            50% { opacity: 0.5; }
         }
         
         .radial-rays {
@@ -255,3 +255,33 @@
                 padding-bottom: 40px;
             }
         }
+        .permanent-marker-font {
+            font-family: 'Permanent Marker', cursive !important;
+            font-weight: 400 !important;
+        }
+
+        .luckiest-guy-regular {
+            font-family: "Luckiest Guy", cursive !important;
+            font-weight: 400 !important;   
+        }
+      
+        .jaro-uniquifier {
+            font-family: "Jaro", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .rubik-mono-one-regular {
+            font-family: "Rubik Mono One", monospace;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .nanum-pen-script-regular {
+            font-family: "Nanum Pen Script", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+
