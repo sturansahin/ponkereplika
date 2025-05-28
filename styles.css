@@ -35,7 +35,7 @@
         
         .marquee-content {
             display: inline-block;
-            animation: marquee 20s linear infinite;
+            animation: marquee 7s linear infinite, blink 3s infinite;
         }
         
         @keyframes marquee {
@@ -283,5 +283,51 @@
             font-weight: 400;
             font-style: normal;
         }
+
+        .chewy-regular {
+            font-family: "Chewy", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .vibrate {
+            animation: vibrate 0.2s infinite;
+            display: inline-block;
+        }
+
+        @keyframes vibrate {
+            0% { transform: translate(0, 0); }
+            20% { transform: translate(-1px, 1px); }
+            40% { transform: translate(-1px, -1px); }
+            60% { transform: translate(1px, 1px); }
+            80% { transform: translate(1px, -1px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        .rotated-vibrate {
+            animation: rotated-vibrate 0.2s infinite;
+            display: inline-block;
+        }
+
+        @keyframes rotated-vibrate {
+            0%, 100% { transform: translate(0, 0) rotate(-5deg); }
+            20% { transform: translate(-1px, 1px) rotate(-2deg); }
+            40% { transform: translate(-1px, -1px) rotate(-6deg); }
+            60% { transform: translate(1px, 1px) rotate(-2deg); }
+            80% { transform: translate(1px, -1px) rotate(-6deg); }
+        }
+
+        .button-text-hover:hover span {
+            animation: text-shake 0.1s infinite;
+            display: inline-block;
+        }
+
+        @keyframes text-shake {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(-1px, 1px); }
+            50% { transform: translate(1px, 0); }
+            75% { transform: translate(1px, -1px); }
+        }
+
 
 
